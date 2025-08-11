@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INNOVANT BIO — Consulting Agency</title>
+</head>
+<body>
+<header>
+<h1 data-lang="ru">INNOVANT BIO — консалтинг и развитие бизнеса</h1>
+<h1 data-lang="en" style="display:none">INNOVANT BIO — Consulting and Business Growth</h1>
+<div>
+<button id="ruBtn" class="active" data-setlang="ru">RU</button>
+<button id="enBtn" data-setlang="en">EN</button>
+</div>
+</header>
+<main>
+<section id="hero">
+<p data-lang="ru">Партнёр для владельцев и топ‑менеджеров: стратегия, маркетинг, продажи и внедрение.</p>
+<p data-lang="en" style="display:none">Partner for owners and executives: strategy, marketing, sales, and implementation.</p>
+<img src="managing-partner.jpg" alt="Managing Partner" style="max-width:100%; height:auto;">
+</section>
+<section id="managing-partner">
+<h2 data-lang="ru">Управляющий партнёр</h2>
+<h2 data-lang="en" style="display:none">Managing Partner</h2>
+<p data-lang="ru">Александр Ноздрачёв — более 20 лет опыта в фармацевтической индустрии.</p>
+<p data-lang="en" style="display:none">Alexander Nozdrachev — more than 20 years of experience in the pharmaceutical industry.</p>
+</section>
+</main>
+<script>
+const ruBtn = document.getElementById('ruBtn');
+const enBtn = document.getElementById('enBtn');
+function setLang(lang){
+  document.querySelectorAll('[data-lang="ru"]').forEach(el=> el.style.display = (lang==='ru') ? '' : 'none');
+  document.querySelectorAll('[data-lang="en"]').forEach(el=> el.style.display = (lang==='en') ? '' : 'none');
+  ruBtn.classList.toggle('active', lang==='ru');
+  enBtn.classList.toggle('active', lang==='en');
+  document.documentElement.lang = lang;
+}
+ruBtn.addEventListener('click', ()=> setLang('ru'));
+enBtn.addEventListener('click', ()=> setLang('en'));
+setLang('ru');
+</script>
+</body>
+</html>
